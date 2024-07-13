@@ -1,5 +1,5 @@
 # This script fetches NRL (National Rugby League) match data for the year 2024
-# and saves it to a JSON file named "nrl_data_2024.json" in the "./data"
+# and saves it to a JSON file named "nrl_data_2024_round_6.json" in the "./data/test"
 # directory.
 
 
@@ -8,12 +8,23 @@
 from utilities.get_nrl_data import get_nrl_data
 import json
 import sys
+import os
 sys.path.append('..')
-import ENVIRONMENT_VARIABLES as EV
-# Select the year and the amount of rounds 
-select_year = 2020
-select_rounds = 27
+#import ENVIRONMENT_VARIABLES as EV
 
+#Initial conditions
+# Select the year and the subset of rounds (1 to 27) to scrape 
+select_year = 2024
+select_rounds = 6
+
+#set location to print to
+data_directory = "../NRL-Data/Data/Testing"
+# Before opening the file, ensure the directory exists
+try:
+    os.makedirs(data_directory, exist_ok=True)
+    print(f"Directory '{os.path.abspath(data_directory)}' created successfully.")
+except Exception as e:
+    print(f"Failed to create directory '{os.path.abspath(data_directory)}'. Error: {e}")
 
 years = [select_year]
 if __name__ == "__main__":
@@ -44,5 +55,7 @@ if __name__ == "__main__":
     overall_data_json = json.dumps(overall_data, indent=4)
 
     # # Write JSON data to a file
-    with open(f"../data/nrl_data_{select_year}.json", "w") as file:
-        file.write(overall_data_json)
+    
+    with open(f"{data_directory}/nrl_data_{select_year}_round_{select_rounds}.json", "w") as file:
+       file.write(overall_data_json)
+    
