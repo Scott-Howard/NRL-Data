@@ -1,3 +1,5 @@
+## processed on 2021-09-30 sh
+
 # This script fetches NRL (National Rugby League) match data for the year 2024
 # and saves it to a JSON file named "nrl_data_2024_round_6.json" in the "./data/test"
 # directory.
