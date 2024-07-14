@@ -2,11 +2,11 @@
 Webscraper for finding NRL data related to team statistics
 """
 from bs4 import BeautifulSoup
-from utilities.set_up_driver import set_up_driver
+from set_up_driver import set_up_driver
 
 import sys
 sys.path.append('..')
-sys.path.append('..')
+#sys.path.append('..')
 #import ENVIRONMENT_VARIABLES as EV
 
 def get_nrl_data(round, year):
@@ -49,3 +49,11 @@ def get_nrl_data(round, year):
         f"{round}": matches_json
     }
     return round_data
+
+
+if __name__ == "__main__":
+        #create tests for the above function
+        try:
+            print(get_nrl_data(1, 2023))
+        except Exception as ex:
+            print(f"Error: {ex}")

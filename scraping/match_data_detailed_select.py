@@ -1,3 +1,8 @@
+
+# This script fetches NRL (National Rugby League) match data for the year 2023
+# and saves it to a JSON file named "nrl_data_2024_round_6.json" in the "./data/test"
+# directory.
+
 import json
 import pandas as pd
 import numpy as np
@@ -18,8 +23,8 @@ variables = [
     "Round"]
 
 
-select_year = 2020
-select_round = 27
+select_year = 2023
+select_rounds = 6
 
 
 
@@ -42,7 +47,7 @@ df = pd.DataFrame(
 
 # Iterate over each round (assuming 26 rounds)
 match_json_datas = []
-for round in range(0, select_round):
+for round in range(0, select_rounds):
     try:
         # Extract data for the current round
         round_data = years_arr[year][round][str(round + 1)]
@@ -95,5 +100,5 @@ overall_data = {
 overall_data_json = json.dumps(overall_data, indent=4)
 
 # Write JSON data to a file
-with open(f"../data/nrl_detailed_match_data_{select_year}.json", "w") as file:
+with open(f"{data_directory}/nrl_data_{select_year}_round_{select_roundss}.json", "w") as file:
     file.write(overall_data_json)

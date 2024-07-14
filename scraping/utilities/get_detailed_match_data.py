@@ -2,11 +2,11 @@
 Webscraper for finding NRL data related to team statistics
 """
 from bs4 import BeautifulSoup
-from utilities.set_up_driver import set_up_driver
+from set_up_driver import set_up_driver
 
-import sys  # noqa
-sys.path.append('..')  # noqa
-sys.path.append('..')  # noqa
+# import sys  # noqa
+# sys.path.append('/d:/Repos/NRL-Data')  # noqa
+# sys.path.append('..')  # noqa
 import ENVIRONMENT_VARIABLES as EV  # noqa
 
 BARS_DATA: dict = {'time_in_possession': -1,
@@ -314,3 +314,11 @@ def get_detailed_nrl_data(
                  'away': away_data}
     
     return game_data
+
+
+if __name__ == "__main__":
+        #create tests for the above function
+        try:
+            print(get_detailed_nrl_data(1, 2023))
+        except Exception as ex:
+            print(f"Error: {ex}")
